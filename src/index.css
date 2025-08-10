@@ -103,3 +103,37 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+/* Extend design tokens and utilities */
+@layer base {
+  :root {
+    /* Gradients & shadows */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary) / 0.65) 100%);
+    --shadow-elegant: 0 12px 32px -12px hsl(var(--primary) / 0.25);
+    --shadow-glow: 0 8px 24px -8px hsl(var(--ring) / 0.35);
+
+    /* Chart palette (HSL) */
+    --chart-1: 221 83% 53%;
+    --chart-2: 160 84% 39%;
+    --chart-3: 28 90% 54%;
+    --chart-4: 291 64% 42%;
+    --chart-5: 7 88% 61%;
+  }
+  .dark {
+    --gradient-primary: linear-gradient(135deg, hsl(var(--sidebar-primary)) 0%, hsl(var(--sidebar-primary) / 0.6) 100%);
+    --shadow-elegant: 0 14px 34px -14px hsl(var(--sidebar-primary) / 0.35);
+    --shadow-glow: 0 0 40px hsl(var(--sidebar-primary) / 0.35);
+
+    --chart-1: 221 83% 70%;
+    --chart-2: 160 84% 48%;
+    --chart-3: 28 90% 64%;
+    --chart-4: 291 64% 58%;
+    --chart-5: 7 88% 68%;
+  }
+}
+
+@layer utilities {
+  .bg-gradient-primary { background-image: var(--gradient-primary); }
+  .shadow-elegant { box-shadow: var(--shadow-elegant); }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+}
